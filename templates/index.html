@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Facial Recognition Model</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #f0f0f0;
+      }
+      h1 {
+        text-align: center;
+        color: #333333;
+      }
+      form {
+        width: 80%;
+        margin: 0 auto;
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0px 0px 5px #aaaaaa;
+      }
+      label {
+        font-size: 18px;
+        display: block;
+        margin-bottom: 10px;
+      }
+      input[type="file"] {
+        margin-bottom: 20px;
+      }
+      input[type="submit"] {
+        background-color: #4CAF50;
+        color: #ffffff;
+        font-size: 16px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      input[type="submit"]:hover {
+        background-color: #3e8e41;
+      }
+      .result {
+        width: 80%;
+        margin: 20px auto;
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0px 0px 5px #aaaaaa;
+      }
+      .result h2 {
+        color: #333333;
+        margin-top: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Facial Recognition Model</h1>
+    <form method="POST" enctype="multipart/form-data" action="/predict">
+      <div>
+        <h2>Input Images</h2>
+        <label for="image1">Image 1:</label>
+        <input type="file" name="image1" accept="image/*">
+        <br>
+        <label for="image2">Image 2:</label>
+        <input type="file" name="image2" accept="image/*">
+      </div>
+      <br>
+      <div>
+        <input type="submit" value="Predict">
+      </div>
+      <br>
+    </form>
+    {% if prediction %}
+    <div class="result">
+      <h2>Result</h2>
+      <p>{{ prediction }}</p>
+    </div>
+    {% endif %}
+  </body>
+</html>
